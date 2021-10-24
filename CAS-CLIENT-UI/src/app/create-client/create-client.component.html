@@ -1,1 +1,68 @@
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    <legend class="text-center">Create Client  <span class="req">
+                        <small>(* means required)</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="Id"><span class="req">* </span> Id: <small>This will be unique identifier for Client 
+                                </small> </label>
+                        <input required type="text" [(ngModel)]="client.id" name="id" id="id"
+                            class="form-control phone" maxlength="10" placeholder="Enter Id..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ClientName"><span class="req">* </span> Client Name:<small>It should be unique accross all clients</small> </label>
+                        <input class="form-control" type="text" [(ngModel)]="client.clientName" name="clientName" id="clientName" required
+                            placeholder="Enter Client Name" />
+                        <div id="errClientName"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ClientType"><span class="req">* </span> Client Type : </label>
+                        <input class="form-control" type="text" [(ngModel)]="client.clientType" name="clientType" id="clientType"
+                            placeholder="Internal/External" required />
+                        <div id="errClientType"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ClientID"><span class="req">* </span> Client Id: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="client.clientID" name="clientID"
+                            id="clientID" placeholder="GRB/CCB" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="GFCID"><span class="req">* </span> Client GFCID: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="client.gfcid" name="gfcid"
+                            id="gfcid" placeholder="fullstack/backend/developer" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ClientRegion"><span class="req">* </span> Client Region: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="client.clientRegion" name="clientRegion"
+                            id="clientRegion" placeholder="GRB/APAC" />
+                        <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="createClient()">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
