@@ -1,1 +1,66 @@
-<p>hi</p>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <div id="custom-search-input">
+            <div class="input-group col-md-6" style="text-align: center">
+                <legend class="text-center">Client Worklist  <span class="req">
+                    </span></legend>
+            </div>
+            <div class="input-group col-md-6" style="text-align: center">
+                
+                <input type="text" class="search-query form-control" placeholder="Search With Client ID" name="clientid"
+                    [(ngModel)]="id1" />
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button" (click)="findByClientId()">
+                        <span class=" glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            <br>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="container">
+        <div class="row col-md-8 col-md-offset-2 custyle">
+            <!-- <table class="table table-striped custab"> -->
+                <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
+
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Client Name</th>
+                        <th>Client Type</th>
+                        <th>Client ID</th>
+                        <th>GFCID</th>
+                        <th>Client Region</th>
+                        <th>Action</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clients">
+                        <td>{{client.id}}</td>
+                        <td>{{client.clientName}}</td>
+                        <td>{{client.clientType}}</td>
+                        <td>{{client.clientID}}</td>
+                        <td>{{client.gfcid}}</td>
+                        <td>{{client.clientRegion}}</td>
+                        <td class="text-center"><button class="btn btn-danger btn-xs"
+                                (click)="deleteUser(client.id)"><span class="glyphicon glyphicon-remove"></span> Delete
+                                Client</button></td>
+                        <td class="text-center"><button class="btn btn-success btn-xs"
+                                (click)="editUser(client.id)"><span class="glyphicon glyphicon-remove"></span> Edit
+                                Client</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
